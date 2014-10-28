@@ -11,10 +11,10 @@
 development:
   adapter: mysql2
   encoding: utf8
-  database: metal_ranking_development
+  database: metal_ranking
   pool: 5
   username: root
-  password:
+  password: password
   socket: /var/lib/mysql/mysql.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -26,14 +26,14 @@ test:
   database: metal_ranking_test
   pool: 5
   username: root
-  password:
+  password: password
   socket: /var/lib/mysql/mysql.sock
 
 production:
   adapter: mysql2
   encoding: utf8
-  database: metal_ranking_production
+  database: metal_ranking
   pool: 5
   username: root
-  password:
+  password: password
   socket: /var/lib/mysql/mysql.sock
