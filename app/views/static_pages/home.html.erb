@@ -1,8 +1,14 @@
 <% provide(:title, 'Home') %>
-<h1>Metal Ranking</h1>
-<p>
-  This is the home page for the
-  <a href="http://railstutorial.jp/">Ruby on Rails Tutorial</a>
-  メタルランキング検索
-</p>
+<div class="center hero-unit">
+  <h1>No Music No Life</h1>
 
+  <h2>
+    This is the home page for the
+    <a href="http://railstutorial.jp/">Ruby on Rails Tutorial</a>
+    sample application.
+  </h2>
+
+  <%= link_to "Sign up now!", '#', class: "btn btn-large btn-primary" %>
+</div>
+
+<%= link_to image_tag("guitar_sil.jpg", alt: "Rails"), 'http://rubyonrails.org/' %>
