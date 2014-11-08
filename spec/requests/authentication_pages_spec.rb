@@ -77,6 +77,18 @@ describe "Authentication" do
           end
         end
       end
+      describe "in the Microposts controller" do
+
+        describe "submitting to the create action" do
+          before { post microposts_path }
+          specify { expect(response).to redirect_to(signin_path) }
+        end
+
+        describe "submitting to the destroy action" do
+          before { delete micropost_path(FactoryGirl.create(:micropost)) }
+          specify { expect(response).to redirect_to(signin_path) }
+        end
+      end
     end
 
     describe "as wrong user" do
@@ -102,10 +114,10 @@ describe "Authentication" do
 
       before { sign_in non_admin, no_capybara: true }
 
-      describe "submitting a DELETE request to the Users#destroy action" do
-        before { delete user_path(user) }
-        specify { expect(response).to redirect_to(root_path) }
-      end
+      # describe "submitting a DELETE request to the Users#destroy action" do
+      #   before { delete user_path(user) }
+      #   specify { expect(response).to redirect_to(root_path) }
+      # end
     end
   end
 end
