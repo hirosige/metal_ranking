@@ -13,7 +13,7 @@ describe "User pages" do
       visit users_path
     end
 
-    it { should have_title('All users') }
+    it { should have_title(full_title('All users')) }
     it { should have_content('All users') }
 
     describe "pagination" do
@@ -66,7 +66,7 @@ describe "User pages" do
     before { visit user_path(user) }
 
     it { should have_content(user.name) }
-    it { should have_title(user.name) }
+    it { should have_title(full_title(user.name)) }
 
     describe "follow/unfollow buttons" do
       let(:other_user) { FactoryGirl.create(:user) }
@@ -161,7 +161,7 @@ describe "User pages" do
         let(:user) { User.find_by(email: 'user@example.com') }
 
         it { should have_link('Sign out') }
-        it { should have_title(user.name) }
+        it { should have_title(full_title(user.name)) }
         it { should have_selector('div.alert.alert-success', text: 'ユーザ登録が完了しました。') }
 
         describe "followed by signout" do
@@ -199,7 +199,7 @@ describe "User pages" do
 
     describe "page" do
       it { should have_content("Update your profile") }
-      it { should have_title("Edit user") }
+      it { should have_title(full_title('Edit user')) }
       it { should have_link('change', href: 'http://gravatar.com/emails') }
     end
 

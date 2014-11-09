@@ -8,7 +8,7 @@ describe "Authentication" do
     before { visit signin_path }
 
     it { should have_content('Sign in') }
-    it { should have_title('Sign in') }
+    it { should have_title(full_title('Sign in')) }
   end
 
   describe "signin" do
@@ -17,7 +17,7 @@ describe "Authentication" do
     describe "with invalid information" do
       before { click_button "Sign in" }
 
-      it { should have_title('Sign in') }
+      it { should have_title(full_title('Sign in')) }
       it { should have_selector('div.alert.alert-error', text: 'Invalid') }
 
       describe "after visiting another page" do
@@ -63,12 +63,12 @@ describe "Authentication" do
 
         describe "visiting the following page" do
           before { visit following_user_path(user) }
-          it { should have_title('Sign in') }
+          it { should have_title(full_title('Following')) }
         end
 
         describe "visiting the followers page" do
           before { visit followers_user_path(user) }
-          it { should have_title('Sign in') }
+          it { should have_title(full_title('Followers')) }
         end
 
         describe "when attempting to visit a protected page" do

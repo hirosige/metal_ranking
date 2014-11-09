@@ -1,0 +1,33 @@
+<% provide(:title, 'Band List') %>
+<h3>バンド一覧</h3>
+  <pre>
+    検索実装予定
+  </pre>
+
+<%= will_paginate %>
+
+<table class="table table-striped table-bordered table-hover table-condensed">
+  <thead  class="bg-info">
+  <tr>
+    <!--<th nowrap>削除</th>-->
+    <!--<th nowrap>更新</th>-->
+    <th nowrap>バンド名</th>
+    <th nowrap>出身地</th>
+    <th nowrap>ジャンル</th>
+    <!--<th nowrap>ボーカル名</th>-->
+    <!--<th nowrap>リードギタリスト名</th>-->
+    <!--<th nowrap>リズムギタリスト名</th>-->
+    <!--<th nowrap>ベーシスト名</th>-->
+    <!--<th nowrap>ドラムス名</th>-->
+    <th nowrap>レート</th>
+    <th nowrap>レイティング数</th>
+    <th nowrap>概要</th>
+    <th nowrap>結成日</th>
+  </tr>
+  </thead>
+  <tbody>
+    <%= render @bands %>
+  </tbody>
+</table>
+
+<%= will_paginate %>

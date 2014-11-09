@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141108191338) do
+ActiveRecord::Schema.define(version: 20141109073443) do
+
+  create_table "bands", force: true do |t|
+    t.string   "name"
+    t.string   "place"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "genre"
+    t.integer  "rate"
+    t.integer  "rating_ct"
+    t.string   "review"
+    t.string   "biography"
+    t.string   "established_date"
+  end
 
   create_table "microposts", force: true do |t|
     t.string   "content"

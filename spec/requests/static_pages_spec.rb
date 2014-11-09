@@ -50,8 +50,8 @@ describe "StaticPages" do
           visit root_path
         end
 
-        it { should have_link("0 following", href: following_user_path(user)) }
-        it { should have_link("1 followers", href: followers_user_path(user)) }
+        it { expect(page).to have_content('0 following') }
+        it { expect(page).to have_content('1 followers') }
       end
     end
   end
@@ -65,7 +65,7 @@ describe "StaticPages" do
 
     it "should have the title" do
       visit help_path
-      expect(page).to have_title("Metal Ranking(tmp) | Help")
+      expect(page).to have_title(full_title('Help'))
     end
   end
 
@@ -78,7 +78,7 @@ describe "StaticPages" do
 
     it "should have the title" do
       visit about_path
-      expect(page).to have_title("Metal Ranking(tmp) | About")
+      expect(page).to have_title(full_title('About'))
     end
   end
 
@@ -91,7 +91,20 @@ describe "StaticPages" do
 
     it "should have the title" do
       visit contact_path
-      expect(page).to have_title("Metal Ranking(tmp) | Contact")
+      expect(page).to have_title(full_title('Contact'))
+    end
+  end
+
+  describe "Band page" do
+
+    it "should have the content 'Contact'" do
+      visit bands_path
+      expect(page).to have_content('バンド一覧')
+    end
+
+    it "should have the title" do
+      visit bands_path
+      expect(page).to have_title(full_title('Band List'))
     end
   end
 

@@ -2,6 +2,7 @@ namespace :db do
   desc "Fill database with sample data"
   task populate: :environment do
     make_users
+    make_bands
     make_microposts
     make_relationships
   end
@@ -21,6 +22,28 @@ def make_users
                  email:    email,
                  password: password,
                  password_confirmation: password)
+  end
+end
+
+def make_bands
+  1000.times do |n|
+    name  = Faker::Company.name
+    place = "place-#{n+1}"
+    genre = "Metal-sub#{n+1}"
+    rate = 0 #Faker::Number.number(1)
+    rating_ct = 0
+    review = Faker::Lorem.sentence(1)
+    biography =  Faker::Lorem.sentence(1)
+    established_date = "2014/10/31"
+    Band.create!(name: name,
+                 place: place,
+                 genre: genre,
+                 rate: rate,
+                 rating_ct: rating_ct,
+                 review: review,
+                 biography: biography,
+                 established_date: established_date
+                 )
   end
 end
 

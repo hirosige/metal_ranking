@@ -10,6 +10,12 @@ FactoryGirl.define do
     end
   end
 
+  factory :band do
+    sequence(:name)  { |n| "Band #{n}" }
+    sequence(:place) { |n| "Place #{n}" }
+
+  end
+
   factory :micropost do
     content "Lorem ipsum"
     user
